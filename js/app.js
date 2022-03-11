@@ -170,7 +170,7 @@ const displayReportedPosts = () => {
         const div = createPost(post);
         document.getElementById( "reported" ).appendChild(div);
     });
-    let reportedPostsId = [];
+    reportedPostsId = [];
 };
 
 const loadPosts = async () =>{
