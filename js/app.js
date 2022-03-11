@@ -42,11 +42,13 @@ const switchTab = (id) => {
         document.getElementById( "liked" ).style.display = "none";
         document.getElementById( "reported" ).style.display = "none";
         document.getElementById( "questions" ).style.display = "block";
+        document.getElementById( "footer" ).style.display = "block";
     } else if (id === "liked") {
         document.getElementById( "liked" ).style.display = "block";
         document.getElementById( "posts" ).style.display = "none";
         document.getElementById( "reported" ).style.display = "none";
         document.getElementById( "questions" ).style.display = "none";
+        document.getElementById( "footer" ).style.display = "none";
 
         displayLikedPosts();
     } else {
@@ -54,6 +56,7 @@ const switchTab = (id) => {
         document.getElementById( "posts" ).style.display = "none";
         document.getElementById( "liked" ).style.display = "none";
         document.getElementById( "questions" ).style.display = "none";
+        document.getElementById( "footer" ).style.display = "none";
 
         displayReportedPosts();
     }
