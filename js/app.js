@@ -1,9 +1,10 @@
 let posts=[ ];
 
-const likedPostsId = [];
-const reportedPostsId = [];
+let likedPostsId = [];
+let reportedPostsId = [];
 
 const getLikedPosts = () => {
+  
     return posts.filter((post) => likedPostsId.includes(post.id));
 };
 
@@ -12,10 +13,13 @@ const getReportedPosts = () => {
 };
 
 const isLiked = (id) => {
+
     return likedPostsId?.length && !!likedPostsId.includes(id);
+   
 };
 
 const addToLiked = (id) => {
+    
     likedPostsId.push(id); 
     showPosts(posts);
 };
@@ -32,20 +36,24 @@ const displayContent = (text) => {
 };
 
 const switchTab = (id) => {
+ 
     if (id === "posts") {
         document.getElementById( "posts" ).style.display = "grid";
         document.getElementById( "liked" ).style.display = "none";
         document.getElementById( "reported" ).style.display = "none";
+        document.getElementById( "questions" ).style.display = "block";
     } else if (id === "liked") {
         document.getElementById( "liked" ).style.display = "block";
         document.getElementById( "posts" ).style.display = "none";
         document.getElementById( "reported" ).style.display = "none";
+        document.getElementById( "questions" ).style.display = "none";
 
         displayLikedPosts();
     } else {
         document.getElementById( "reported" ).style.display = "block";
         document.getElementById( "posts" ).style.display = "none";
         document.getElementById( "liked" ).style.display = "none";
+        document.getElementById( "questions" ).style.display = "none";
 
         displayReportedPosts();
     }
@@ -150,6 +158,7 @@ const displayLikedPosts = () => {
         const div = createPost(post);
         document.getElementById( "liked" ).appendChild(div);
     });
+    likedPostsId = [];
 };
 
 const displayReportedPosts = () => {
@@ -158,6 +167,7 @@ const displayReportedPosts = () => {
         const div = createPost(post);
         document.getElementById( "reported" ).appendChild(div);
     });
+    let reportedPostsId = [];
 };
 
 const loadPosts = async () =>{
